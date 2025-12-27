@@ -24,6 +24,9 @@ function Budget () {
     };
     const addExpense = (e) => {
         e.preventDefault();
+        if (!nameExpense.trim() || cost <= 0) {
+            return; 
+        }
         const newExpense = {
             id:Date.now(),
             name:nameExpense, 
@@ -34,6 +37,10 @@ function Budget () {
         setNameExpense("");
         setCost("");
     };
+
+    const totalExpenses = expenses.reduce((sum,exp) => sum + exp.cost, 0);
+    const remaing = budget - totalExpenses;
+    
  
     return(
         <>
@@ -63,8 +70,8 @@ function Budget () {
 
             }
             
-            <p>Remaing:</p>
-            <p>Sepent so far:</p>
+            <p>Remaing:{remaing}</p>
+            <p>Sepent so far: {totalExpenses}</p>
             <hr />
 
             <h2>Expenses</h2>
@@ -81,6 +88,7 @@ function Budget () {
                 </ul>   
             </div>
 
+            <hr />
             <h2>Add Expense</h2>
             <form onSubmit={addExpense} onKeyDown={(e) => e.key === "Enter" }>
                 <label htmlFor="expense-name">Name</label>
