@@ -12,6 +12,8 @@ function Budget() {
     { id: "entertainment", name: "Entertainment" },
     { id: "health", name: "Health" },
     { id: "utilities", name: "Utilities" },
+    { id: "education", name: "Education" },
+    
   ];
   const [formData, setFormData] = useState({
     amount: "",
@@ -88,13 +90,29 @@ function Budget() {
       <input type="text" placeholder="Type to search" />
       <button>Search</button>
       <div>
-        <ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
           {expenses.map((expense) => (
-            <li key={expense.id}>
-              {expense.category}| {expense.amount}| {expense.date}|{expense.description}
-            </li>
+            <tbody key={expense.id}>
+              <td >{expense.date}</td>
+              <td>{expense.category}</td>
+              <td>{expense.description}</td>
+              <td>{expense.amount}</td>
+              <td>
+                <button>Edit</button> 
+                <button>Delete</button>
+              </td>
+            </tbody>
           ))}
-        </ul>
+        </table>
       </div>
 
       <hr />
