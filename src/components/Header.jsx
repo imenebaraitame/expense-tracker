@@ -8,7 +8,7 @@ function Header() {
     return (
         <>
             {/* Top Header */}
-            <header className="h-[80px] border-b border-[rgba(148,163,184,0.1)] px-8 flex items-center justify-between sticky top-0 bg-[#0f172a]/80 backdrop-blur-md z-40">
+            <header className=" fixed top-0 w-full h-[80px] border-b border-[rgba(148,163,184,0.1)] px-8 flex items-center justify-between bg-[#0f172a]/80 backdrop-blur-md z-40">
                 <div className="flex flex-col">
                     <h1 className="text-[20px] font-bold tracking-tight">Expense Tracker</h1>
                     <p className="text-[12px] text-[#94a3b8] font-medium">Track your spending and manage your budget</p>

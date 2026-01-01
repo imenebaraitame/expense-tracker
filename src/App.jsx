@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <main className="flex-1 flex flex-col min-w-0 overflow-x-hidden">
+      <main className="flex-1 flex flex-col min-w-0  pt-[80px] overflow-x-hidden">
         <GlobalProvider>
           <Header />
           {/* Dashboard Content */}
