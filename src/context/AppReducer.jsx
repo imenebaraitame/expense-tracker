@@ -1,12 +1,17 @@
 
 
 const AppReducer = (state, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case 'ADD_EXPENSE':
-            return{
+            return {
                 ...state,
                 expenses: [action.payload, ...state.expenses]
             }
+        case 'HANDLE_MODAL':
+            return {
+                ...state,
+                isModalOpen: action.payload
+            };
         default:
             return state;
     }

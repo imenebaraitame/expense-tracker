@@ -10,7 +10,8 @@ const initialState = {
         // { id: "4", description: "New Sneakers", amount: 89.99, category: "shopping", date: "2024-03-18" },
         // { id: "5", description: "Pharmacy", amount: 32.4, category: "health", date: "2024-03-15" },
         // { id: "6", description: "Electric Bill", amount: 145.2, category: "utilities", date: "2024-03-10" },
-    ]
+    ],
+    isModalOpen : false
 }
 //Create context
 export const GlobalContext = createContext(initialState);
@@ -26,11 +27,19 @@ export const GlobalProvider = ({ children }) => {
             payload: expense
         });
     }
+    function handleModal(isOpen){
+        dispatch({
+            type: 'HANDLE_MODAL',
+            payload: isOpen
+        });
+    }
     return (
         <GlobalContext.Provider 
         value = {{
             expenses: state.expenses,
-            addExpense
+            isModalOpen: state.isModalOpen,
+            addExpense,
+            handleModal
         }}>
             {children}
         </GlobalContext.Provider>

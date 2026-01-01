@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
-import { Trash2, Pencil, CreditCard } from "lucide-react";
+import { Trash2, Pencil} from "lucide-react";
 
 function ExpensesList() {
     const { expenses } = useContext(GlobalContext);

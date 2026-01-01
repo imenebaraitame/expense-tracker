@@ -1,5 +1,10 @@
 import { Plus } from "lucide-react";
+import { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
+
 function Header() {
+    const { handleModal } = useContext(GlobalContext);
+
     return (
         <>
             {/* Top Header */}
@@ -10,9 +15,11 @@ function Header() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    {/* Add Entry CTA */}
+                    {/* Add Expense CTA */}
                     <button
-                        className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#14b8a6] to-[#10b981] text-white rounded-lg text-[13px] font-bold shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] active:scale-95 transition-all">
+                        className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#14b8a6] to-[#10b981] text-white rounded-lg text-[13px] font-bold shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] active:scale-95 transition-all"
+                        onClick={() => handleModal(true)}
+                    >
                         <Plus size={18} />
                         Add Expense
                     </button>
